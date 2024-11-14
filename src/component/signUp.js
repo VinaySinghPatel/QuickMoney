@@ -9,7 +9,7 @@ const SignUp = (props) => {
       try {
           e.preventDefault();
           let {name,email,password,username,mobilenumber} = Credential;
-          let response = await fetch (`http://localhost:5000/api/auth/createuser`,{
+          let response = await fetch (`https://quickmoney-backend.onrender.com/api/auth/createuser`,{
               method : 'POST',
               headers : {
                   'Content-Type' : 'application/json'
