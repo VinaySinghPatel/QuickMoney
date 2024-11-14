@@ -8,7 +8,7 @@ const Login = (props) => {
     console.log("Submit");
       try {
           e.preventDefault();
-          let response = await fetch (`http://localhost:5000/api/auth/Login`,{
+          let response = await fetch (`https://quickmoney-backend.onrender.com/api/auth/Login`,{
               method : 'POST',
               headers : {
                   'Content-Type' : 'application/json'
