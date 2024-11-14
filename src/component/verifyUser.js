@@ -19,7 +19,7 @@ const VerifyUser = (props) => {
    
     e.preventDefault();
     try {
-      let response = await fetch('http://localhost:5000/api/otp/send-otp', {
+      let response = await fetch('https://quickmoney-backend.onrender.com/api/otp/send-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const VerifyUser = (props) => {
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch('http://localhost:5000/api/otp/verify-otp', {
+      let response = await fetch('https://quickmoney-backend.onrender.com/api/otp/verify-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
