@@ -8,7 +8,7 @@ const Profile = () => {
   const fetchUserData = async () => {
     let token = localStorage.getItem('auth-token');
     try {
-      let response = await fetch('http://localhost:5000/api/auth/getuser', {
+      let response = await fetch('https://quickmoney-backend.onrender.com/api/auth/getuser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
