@@ -12,7 +12,7 @@ const MainMoney = (props) => {
                 console.log("The Token Are not Found in the Storage");
             }
             try {
-                const response = await fetch('http://localhost:5000/api/post/getallpost',{
+                const response = await fetch('https://quickmoney-backend.onrender.com/api/post/getallpost',{
                     method: 'GET',
                     headers: {
                       'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const MainMoney = (props) => {
 
      const GetAllPost = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/post/getalldbpost',{
+            const response = await fetch('https://quickmoney-backend.onrender.com/api/post/getalldbpost',{
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ const MainMoney = (props) => {
             console.log("Token Are Not Exist While AddPost");
         }
         try {
-            let response = await fetch('http://localhost:5000/api/post/createpost',{
+            let response = await fetch('https://quickmoney-backend.onrender.com/api/post/createpost',{
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json',
@@ -75,7 +75,7 @@ const MainMoney = (props) => {
             console.log("Token Are Not Exist While AddPost");
         }
         try {
-            await fetch(`http://localhost:5000/api/post/updatepost/${id}`,{
+            await fetch(`https://quickmoney-backend.onrender.com/api/post/updatepost/${id}`,{
                 method : 'PUT',
                 headers : {
                     'Content-Type' : 'application/json',
@@ -106,7 +106,7 @@ const MainMoney = (props) => {
                 console.log("Token Are Not Exist While AddPost");
             }
             try {
-                await fetch(`http://localhost:5000/api/post/deletepost/${_id}`,{
+                await fetch(`https://quickmoney-backend.onrender.com/api/post/deletepost/${_id}`,{
                     method : 'DELETE',
                     headers : {
                         'Content-Type' : 'application/json',

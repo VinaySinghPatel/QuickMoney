@@ -17,8 +17,9 @@ const Profile = () => {
 
     try {
     
-      let response = await fetch('http://localhost:5000/api/auth//GetUserData/672bcb47937e10412862a51d', {
+      let response = await fetch('http://localhost:5000/api/auth/GetUserData/672bcb47937e10412862a51d', {
         method: 'GET', 
+
         headers: {
           'Content-Type': 'application/json', 
         }
