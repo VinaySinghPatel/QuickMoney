@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from 'react';
 
-
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
- 
+
   const fetchUserData = async () => {
-    let token = localStorage.getItem('auth-token');
+    // const userId = localStorage.getItem('userId'); // Assuming userId is saved in localStorage
+
+    // if (!userId) {
+    //   console.error("User ID is not available.");
+    //   setLoading(false);
+    //   return;
+    // }
+
+// It is Currently Hard Coded the userId We will also imporve this
+
     try {
-      let response = await fetch('http://localhost:5000/api/auth/getuser', {
-        method: 'POST',
+    
+      let response = await fetch('http://localhost:5000/api/auth//GetUserData/672bcb47937e10412862a51d', {
+        method: 'GET', 
         headers: {
-          'Content-Type': 'application/json',
-          'auth-token': token,
+          'Content-Type': 'application/json', 
         }
       });
 
-      // Check if the response is ok (status code in the range 200-299)
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
       let data = await response.json(); 
-      setUser(data.user); 
+      setUser(data); 
     } catch (error) {
       console.error('Error fetching user data', error);
     } finally {
@@ -30,12 +37,10 @@ const Profile = () => {
     }
   };
 
-
   useEffect(() => {
-    fetchUserData();
+    fetchUserData();  
   }, []);
 
-  
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -99,7 +104,7 @@ const Profile = () => {
                       <div className="row pt-1">
                         <div className="col-6 mb-3">
                           <h6>From Date</h6>
-                          <p className="text-muted">{readableDate|| 'Not available'}</p>
+                          <p className="text-muted">{readableDate || 'Not available'}</p>
                         </div>
                       </div>
                       <div className="d-flex justify-content-start">

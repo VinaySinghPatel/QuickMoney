@@ -1,4 +1,5 @@
 const { body, validationResult } = require('express-validator');
+const mongoose = require('mongoose');
 const User = require('../models/User');
 const express = require('express');
 const router = express.Router();
@@ -104,14 +105,21 @@ router.post('/Login',[
  
 })
 
-router.post('/getuser', fecthUser, async (req, res) => {
+
+router.get('/GetUserData/:id', async (req, res) => {
   try {
-    let userId = req.body._id;
-    let user = await User.findOne({ _id: userId }).select('-password');
-    res.json({ user });
+    const userId = req.params.id;
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
   } catch (error) {
-    console.error("Error in fetching user: ", error.message);
-    res.status(500).send("Internal Server Error");
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
 });
 

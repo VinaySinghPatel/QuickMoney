@@ -23,7 +23,7 @@ function App() {
   }
   return (
    <>
-    <MainMoney>
+    <MainMoney >
       <Router>
       <Navbar/>
       <Alert   ale={alert}/>

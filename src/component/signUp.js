@@ -21,6 +21,8 @@ const SignUp = (props) => {
             if(json.Succes){
               // Save karo Auth-Token aor redirect kar do
               localStorage.setItem('auth-token', json.Authtoken);
+              localStorage.setItem('userId', json._id); // Save the userId 
+              console.log(json._id);
               navigate("/Verify");
               props.EditTheAlert("Succes","Succesfully You Are Logged In");
          }else{
